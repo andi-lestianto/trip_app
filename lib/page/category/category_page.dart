@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:trip_app/page/detail/detail_page.dart';
 import 'package:trip_app/page/theme/tripcolor.dart';
 import 'package:trip_app/page/widget/bottomnavbar_widget.dart';
 import 'package:trip_app/page/widget/homemenubutton_widget.dart';
@@ -156,89 +158,96 @@ class _CategoryPageState extends State<CategoryPage> {
                     physics: BouncingScrollPhysics(),
                     shrinkWrap: true,
                     itemCount: dataWisata.length,
-                    itemBuilder: (context, index) => Container(
-                      margin: EdgeInsets.fromLTRB(20, 0, 20, 20),
-                      decoration: BoxDecoration(
-                        color: TripColor.white,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
-                          BoxShadow(
-                              color: TripColor.black.withOpacity(0.1),
-                              blurRadius: 2,
-                              spreadRadius: 2,
-                              offset: const Offset(2, 1))
-                        ],
-                      ),
-                      child: Row(
-                        children: [
-                          ClipRRect(
-                              borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(10),
-                                  topLeft: Radius.circular(10)),
+                    itemBuilder: (context, index) => GestureDetector(
+                      onTap: () {
+                        Get.to(() => DetailPage(
+                              detailWisata: dataWisata[index],
+                            ));
+                      },
+                      child: Container(
+                        margin: EdgeInsets.fromLTRB(20, 0, 20, 20),
+                        decoration: BoxDecoration(
+                          color: TripColor.white,
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: [
+                            BoxShadow(
+                                color: TripColor.black.withOpacity(0.1),
+                                blurRadius: 2,
+                                spreadRadius: 2,
+                                offset: const Offset(2, 1))
+                          ],
+                        ),
+                        child: Row(
+                          children: [
+                            ClipRRect(
+                                borderRadius: BorderRadius.only(
+                                    bottomLeft: Radius.circular(10),
+                                    topLeft: Radius.circular(10)),
+                                child: Container(
+                                    height: 150,
+                                    width: 150,
+                                    child: Image.asset(
+                                      dataWisata[index]['image'],
+                                      fit: BoxFit.cover,
+                                    ))),
+                            Expanded(
                               child: Container(
-                                  height: 150,
-                                  width: 150,
-                                  child: Image.asset(
-                                    dataWisata[index]['image'],
-                                    fit: BoxFit.cover,
-                                  ))),
-                          Expanded(
-                            child: Container(
-                              height: 150,
-                              padding: EdgeInsets.fromLTRB(20, 10, 10, 10),
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    dataWisata[index]['name'],
-                                    overflow: TextOverflow.ellipsis,
-                                    style: GoogleFonts.poppins(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w600),
-                                  ),
-                                  Row(
-                                    children: [
-                                      Image.asset('assets/cat_star.png'),
-                                      SizedBox(
-                                        width: 10,
-                                      ),
-                                      Text(
-                                        dataWisata[index]['rating'],
-                                        style: GoogleFonts.poppins(),
-                                      )
-                                    ],
-                                  ),
-                                  Row(
-                                    children: [
-                                      Image.asset('assets/cat_pin.png'),
-                                      SizedBox(
-                                        width: 10,
-                                      ),
-                                      Text(
-                                        dataWisata[index]['distance'],
-                                        style: GoogleFonts.poppins(),
-                                      )
-                                    ],
-                                  ),
-                                  Row(
-                                    children: [
-                                      Image.asset('assets/cat_tiket.png'),
-                                      SizedBox(
-                                        width: 10,
-                                      ),
-                                      Text(
-                                        dataWisata[index]['price'],
-                                        style: GoogleFonts.poppins(),
-                                      )
-                                    ],
-                                  )
-                                ],
+                                height: 150,
+                                padding: EdgeInsets.fromLTRB(20, 10, 10, 10),
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      dataWisata[index]['name'],
+                                      overflow: TextOverflow.ellipsis,
+                                      style: GoogleFonts.poppins(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w600),
+                                    ),
+                                    Row(
+                                      children: [
+                                        Image.asset('assets/cat_star.png'),
+                                        SizedBox(
+                                          width: 10,
+                                        ),
+                                        Text(
+                                          dataWisata[index]['rating'],
+                                          style: GoogleFonts.poppins(),
+                                        )
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Image.asset('assets/cat_pin.png'),
+                                        SizedBox(
+                                          width: 10,
+                                        ),
+                                        Text(
+                                          dataWisata[index]['distance'],
+                                          style: GoogleFonts.poppins(),
+                                        )
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Image.asset('assets/cat_tiket.png'),
+                                        SizedBox(
+                                          width: 10,
+                                        ),
+                                        Text(
+                                          dataWisata[index]['price'],
+                                          style: GoogleFonts.poppins(),
+                                        )
+                                      ],
+                                    )
+                                  ],
+                                ),
                               ),
-                            ),
-                          )
-                        ],
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),

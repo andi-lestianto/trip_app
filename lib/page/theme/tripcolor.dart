@@ -9,6 +9,8 @@ class TripColor {
   static Color white = 'ffffff'.toColor();
   static Color black = '000000'.toColor();
   static Color graytf = 'E8E8E8'.toColor();
+  static Color yellow = 'FFBB00'.toColor();
+  static Color whiteGray = 'F7F7F7'.toColor();
 }
 
 class TripText {
