@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:trip_app/page/auth/login_page.dart';
+import 'package:trip_app/page/theme/tripcolor.dart';
 
 void main() {
+  SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(statusBarColor: TripColor.primary));
   runApp(const MyApp());
 }
 

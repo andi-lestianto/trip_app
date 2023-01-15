@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:trip_app/page/auth/login_page.dart';
+import 'package:trip_app/page/home/home_page.dart';
 import 'package:trip_app/page/theme/tripcolor.dart';
 import 'package:trip_app/page/widget/textinput_widget.dart';
 
@@ -100,9 +101,11 @@ class _RegisterPageState extends State<RegisterPage> {
                                           shape: RoundedRectangleBorder(
                                               borderRadius:
                                                   BorderRadius.circular(50))),
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        Get.off(const HomePage());
+                                      },
                                       child: Text(
-                                        'LOGIN',
+                                        'DAFTAR',
                                         style: GoogleFonts.poppins(),
                                       )),
                                 ),
@@ -135,7 +138,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               )
                             ]),
                       ),
-                      Center(child: Image.asset('assets/iclogin.png'))
+                      Center(child: Image.asset('assets/ic_login.png'))
                     ],
                   ),
                   const SizedBox(

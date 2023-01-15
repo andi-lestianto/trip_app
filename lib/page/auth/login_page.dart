@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:supercharged/supercharged.dart';
 import 'package:trip_app/page/auth/register_page.dart';
+import 'package:trip_app/page/home/home_page.dart';
 import 'package:trip_app/page/theme/tripcolor.dart';
 import 'package:trip_app/page/widget/textinput_widget.dart';
 
@@ -96,7 +97,9 @@ class _LoginPageState extends State<LoginPage> {
                                           shape: RoundedRectangleBorder(
                                               borderRadius:
                                                   BorderRadius.circular(50))),
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        Get.off(const HomePage());
+                                      },
                                       child: Text(
                                         'LOGIN',
                                         style: GoogleFonts.poppins(),
@@ -131,7 +134,7 @@ class _LoginPageState extends State<LoginPage> {
                               )
                             ]),
                       ),
-                      Center(child: Image.asset('assets/iclogin.png'))
+                      Center(child: Image.asset('assets/ic_login.png'))
                     ],
                   ),
                   Padding(
@@ -164,7 +167,7 @@ class _LoginPageState extends State<LoginPage> {
                                   width: 10,
                                 ),
                                 Text(
-                                  'LOGIN',
+                                  'FACEBOOK',
                                   style: GoogleFonts.poppins(),
                                 ),
                               ],
@@ -190,7 +193,7 @@ class _LoginPageState extends State<LoginPage> {
                                   width: 5,
                                 ),
                                 Text(
-                                  'LOGIN',
+                                  'GOOGLE',
                                   style: GoogleFonts.poppins(),
                                 ),
                               ],
