@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:supercharged/supercharged.dart';
+import 'package:trip_app/page/auth/login_page.dart';
 import 'package:trip_app/page/theme/tripcolor.dart';
 import 'package:trip_app/page/widget/textinput_widget.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
                     height: 20,
                   ),
                   Text(
-                    'Trip App',
+                    'Daftar',
                     style: GoogleFonts.poppins(
                         fontWeight: FontWeight.bold,
                         color: TripColor.white,
@@ -64,6 +65,10 @@ class _LoginPageState extends State<LoginPage> {
                               const SizedBox(
                                 height: 75,
                               ),
+                              const TextInputWidget(title: 'Nama Lengkap'),
+                              const SizedBox(
+                                height: 20,
+                              ),
                               const TextInputWidget(title: 'Alamat Email'),
                               const SizedBox(
                                 height: 20,
@@ -72,14 +77,15 @@ class _LoginPageState extends State<LoginPage> {
                               const SizedBox(
                                 height: 20,
                               ),
-                              Align(
-                                alignment: Alignment.centerRight,
-                                child: Text(
-                                  'Lupa Password?',
-                                  style: GoogleFonts.poppins(
-                                      fontWeight: FontWeight.w600,
-                                      color: TripColor.primary),
-                                ),
+                              const TextInputWidget(
+                                  title: 'Ketik Ulang Password'),
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              Text(
+                                'Dengan mendaftar, saya menyetujui syarat & ketentuan serta kebijakan privasi',
+                                style: GoogleFonts.poppins(
+                                    color: TripColor.primary),
                               ),
                               const SizedBox(
                                 height: 20,
@@ -108,17 +114,22 @@ class _LoginPageState extends State<LoginPage> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    'Tidak punya akun?',
+                                    'Punya akun?',
                                     style: GoogleFonts.poppins(),
                                   ),
                                   const SizedBox(
                                     width: 5,
                                   ),
-                                  Text(
-                                    'Daftar!',
-                                    style: GoogleFonts.poppins(
-                                        fontWeight: FontWeight.w600,
-                                        color: TripColor.primary),
+                                  GestureDetector(
+                                    onTap: () {
+                                      Get.off(() => const LoginPage());
+                                    },
+                                    child: Text(
+                                      'Login!',
+                                      style: GoogleFonts.poppins(
+                                          fontWeight: FontWeight.w600,
+                                          color: TripColor.primary),
+                                    ),
                                   ),
                                 ],
                               )
@@ -127,73 +138,9 @@ class _LoginPageState extends State<LoginPage> {
                       Center(child: Image.asset('assets/iclogin.png'))
                     ],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 20),
-                    child: Text(
-                      'Atau masuk dengan',
-                      style: GoogleFonts.poppins(),
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        width: 150,
-                        height: 50,
-                        child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                                backgroundColor: '4267B2'.toColor(),
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(50))),
-                            onPressed: () {},
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.facebook,
-                                  color: TripColor.white,
-                                ),
-                                const SizedBox(
-                                  width: 10,
-                                ),
-                                Text(
-                                  'LOGIN',
-                                  style: GoogleFonts.poppins(),
-                                ),
-                              ],
-                            )),
-                      ),
-                      const SizedBox(
-                        width: 20,
-                      ),
-                      SizedBox(
-                        width: 150,
-                        height: 50,
-                        child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                                backgroundColor: 'DB4437'.toColor(),
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(50))),
-                            onPressed: () {},
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                const Icon(Icons.g_mobiledata),
-                                const SizedBox(
-                                  width: 5,
-                                ),
-                                Text(
-                                  'LOGIN',
-                                  style: GoogleFonts.poppins(),
-                                ),
-                              ],
-                            )),
-                      ),
-                    ],
-                  ),
                   const SizedBox(
                     height: 20,
-                  ),
+                  )
                 ],
               ),
             ),

@@ -15,7 +15,7 @@ class TextInputWidget extends StatelessWidget {
           title,
           style: GoogleFonts.poppins(),
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         TextField(
