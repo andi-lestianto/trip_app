@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:trip_app/page/home/home_page.dart';
 import 'package:trip_app/page/theme/tripcolor.dart';
 import 'package:trip_app/page/widget/appbartitle_widget.dart';
 import 'package:trip_app/page/widget/bottomnavbar_widget.dart';
 import 'package:trip_app/page/widget/homemenubutton_widget.dart';
 import 'package:trip_app/page/widget/searchappbar_widget.dart';
+import 'package:trip_app/page/widget/textinput_widget.dart';
 
 class DetailPage extends StatefulWidget {
   final Map<String, dynamic> detailWisata;
@@ -15,6 +18,9 @@ class DetailPage extends StatefulWidget {
 }
 
 class _DetailPageState extends State<DetailPage> {
+  List<String> pmethod = ['dn', 'gp', 'ovo', 'etc'];
+  String selectedpm = '';
+
   int selectedPage = 0;
   List<Map<String, dynamic>> dataWisata = [
     {
@@ -171,48 +177,57 @@ class _DetailPageState extends State<DetailPage> {
                                     child: Container(
                                       height: 50,
                                       decoration: BoxDecoration(
-                                          color: TripColor.yellow,
+                                          color: TripColor.primary,
                                           borderRadius:
                                               BorderRadius.circular(10)),
-                                      child:
-                                          Image.asset('assets/det_tiket.png'),
+                                      child: Image.asset('assets/det_chat.png'),
                                     ),
                                   ),
                                   SizedBox(
                                     width: 5,
                                   ),
-                                  Container(
-                                    height: 50,
-                                    decoration: BoxDecoration(
-                                        color: TripColor.primary,
-                                        borderRadius:
-                                            BorderRadius.circular(10)),
-                                    child: Image.asset('assets/det_chat.png'),
+                                  Expanded(
+                                    child: Container(
+                                      height: 50,
+                                      decoration: BoxDecoration(
+                                          color: TripColor.primary,
+                                          borderRadius:
+                                              BorderRadius.circular(10)),
+                                      child:
+                                          Image.asset('assets/det_follow.png'),
+                                    ),
                                   ),
                                   SizedBox(
                                     width: 5,
                                   ),
-                                  Container(
-                                    height: 50,
-                                    decoration: BoxDecoration(
-                                        color: TripColor.primary,
-                                        borderRadius:
-                                            BorderRadius.circular(10)),
-                                    child: Image.asset('assets/det_follow.png'),
-                                  ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  Container(
-                                    height: 50,
-                                    decoration: BoxDecoration(
-                                        color: TripColor.primary,
-                                        borderRadius:
-                                            BorderRadius.circular(10)),
-                                    child:
-                                        Image.asset('assets/det_location.png'),
+                                  Expanded(
+                                    child: Container(
+                                      height: 50,
+                                      decoration: BoxDecoration(
+                                          color: TripColor.primary,
+                                          borderRadius:
+                                              BorderRadius.circular(10)),
+                                      child: Image.asset(
+                                          'assets/det_location.png'),
+                                    ),
                                   ),
                                 ],
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  _dialogBuilder(context);
+                                },
+                                child: Container(
+                                  width: double.infinity,
+                                  height: 50,
+                                  decoration: BoxDecoration(
+                                      color: TripColor.yellow,
+                                      borderRadius: BorderRadius.circular(10)),
+                                  child: Image.asset('assets/det_tiket.png'),
+                                ),
                               ),
                             ],
                           ),
@@ -932,6 +947,330 @@ class _DetailPageState extends State<DetailPage> {
         ],
       )),
       bottomNavigationBar: const BottomNavbarWidget(),
+    );
+  }
+
+  Future<void> _dialogBuilder(BuildContext context) {
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          contentPadding: EdgeInsets.zero,
+          content: StatefulBuilder(
+              builder: (BuildContext context, StateSetter setState) {
+            return Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20), color: Colors.white),
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      height: 60,
+                      width: MediaQuery.of(context).size.width,
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              elevation: 0,
+                              backgroundColor: TripColor.primary,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(10),
+                                      topRight: Radius.circular(10)))),
+                          onPressed: () {},
+                          child: Text(
+                            'BELI TIKET WISATA',
+                            overflow: TextOverflow.ellipsis,
+                            style: GoogleFonts.poppins(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20),
+                          )),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Nama Tempat Wisata',
+                            style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 20,
+                            ),
+                          ),
+                          Text(
+                            'Lorem ipsum dolor sit amet',
+                            style: GoogleFonts.poppins(
+                              fontSize: 20,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: TextInputWidget(title: 'Jumlah Tiket'),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: TextInputWidget(title: 'Tanggal Kunjungan'),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: TextInputWidget(title: 'Voucher'),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Total',
+                            style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 20,
+                            ),
+                          ),
+                          Text(
+                            'Rp. 0',
+                            style: GoogleFonts.poppins(fontSize: 20),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Text(
+                        'Metode Pembayaran',
+                        style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          decoration: BoxDecoration(
+                              color: TripColor.graytf,
+                              borderRadius: BorderRadius.circular(9)),
+                          child: Row(
+                            children: [
+                              Radio(
+                                  value: pmethod[0],
+                                  groupValue: selectedpm,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      selectedpm = pmethod[0];
+                                    });
+                                  }),
+                              Image.asset('assets/pay_dana.png')
+                            ],
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          decoration: BoxDecoration(
+                              color: TripColor.graytf,
+                              borderRadius: BorderRadius.circular(9)),
+                          child: Row(
+                            children: [
+                              Radio(
+                                  value: pmethod[1],
+                                  groupValue: selectedpm,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      selectedpm = pmethod[1];
+                                    });
+                                  }),
+                              Image.asset('assets/pay_gopay.png')
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          decoration: BoxDecoration(
+                              color: TripColor.graytf,
+                              borderRadius: BorderRadius.circular(9)),
+                          child: Row(
+                            children: [
+                              Radio(
+                                  value: pmethod[2],
+                                  groupValue: selectedpm,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      selectedpm = pmethod[2];
+                                    });
+                                  }),
+                              Image.asset('assets/pay_ovo.png')
+                            ],
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          decoration: BoxDecoration(
+                              color: TripColor.graytf,
+                              borderRadius: BorderRadius.circular(9)),
+                          child: Row(
+                            children: [
+                              Radio(
+                                  value: pmethod[3],
+                                  groupValue: selectedpm,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      selectedpm = pmethod[3];
+                                    });
+                                  }),
+                              Image.asset('assets/pay_others.png')
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      height: 60,
+                      width: MediaQuery.of(context).size.width,
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              elevation: 0,
+                              backgroundColor: Colors.amber,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.only(
+                                      bottomLeft: Radius.circular(10),
+                                      bottomRight: Radius.circular(10)))),
+                          onPressed: () {
+                            Get.back();
+                            _succesdialog(context);
+                          },
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image.asset('assets/det_tiket.png'),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Text(
+                                'KONFIRMASI',
+                                overflow: TextOverflow.ellipsis,
+                                style: GoogleFonts.poppins(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20),
+                              ),
+                            ],
+                          )),
+                    )
+                  ],
+                ),
+              ),
+            );
+          }),
+        );
+      },
+    );
+  }
+
+  Future<void> _succesdialog(BuildContext context) {
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          contentPadding: EdgeInsets.zero,
+          content: Container(
+            height: 250,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20), color: Colors.white),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                SizedBox(
+                  height: 40,
+                ),
+                Icon(
+                  Icons.check_circle,
+                  color: Colors.amber,
+                  size: 80,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  'Pembelian Berhasil',
+                  style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Colors.amber),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  height: 60,
+                  width: MediaQuery.of(context).size.width,
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          elevation: 0,
+                          backgroundColor: Colors.amber,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(10),
+                                  bottomRight: Radius.circular(10)))),
+                      onPressed: () {
+                        Get.offAll(() => const HomePage());
+                      },
+                      child: Text(
+                        'Kembali',
+                        overflow: TextOverflow.ellipsis,
+                        style: GoogleFonts.poppins(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20),
+                      )),
+                )
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }
