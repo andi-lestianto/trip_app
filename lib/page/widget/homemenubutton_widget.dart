@@ -23,14 +23,14 @@ class HomeMenuButtonWidget extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            height: 90,
-            width: 90,
+            height: MediaQuery.of(context).size.width / 4 - 20,
+            width: MediaQuery.of(context).size.width / 4 - 20,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
                 color: hexColor.toColor()),
-            child: Transform.scale(scale: 1.4, child: Image.asset(iconPath)),
+            child: Image.asset(iconPath),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Text(

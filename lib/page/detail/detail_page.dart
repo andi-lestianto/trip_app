@@ -5,8 +5,6 @@ import 'package:trip_app/page/home/home_page.dart';
 import 'package:trip_app/page/theme/tripcolor.dart';
 import 'package:trip_app/page/widget/appbartitle_widget.dart';
 import 'package:trip_app/page/widget/bottomnavbar_widget.dart';
-import 'package:trip_app/page/widget/homemenubutton_widget.dart';
-import 'package:trip_app/page/widget/searchappbar_widget.dart';
 import 'package:trip_app/page/widget/textinput_widget.dart';
 
 class DetailPage extends StatefulWidget {
@@ -118,7 +116,7 @@ class _DetailPageState extends State<DetailPage> {
                                             scale: 1.5,
                                             child: Image.asset(
                                                 'assets/det_rating.png')),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 15,
                                         ),
                                         Text(
@@ -137,7 +135,7 @@ class _DetailPageState extends State<DetailPage> {
                                             scale: 1.5,
                                             child: Image.asset(
                                                 'assets/det_follower.png')),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 15,
                                         ),
                                         Text(
@@ -151,7 +149,7 @@ class _DetailPageState extends State<DetailPage> {
                                   ),
                                 ],
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
                               Text(
@@ -163,57 +161,49 @@ class _DetailPageState extends State<DetailPage> {
                                   fontSize: 18,
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 10,
                               ),
-                              Text(
+                              const Text(
                                   'Tempor aute duis sunt excepteur ut ut minim incididunt reprehenderit velit Lorem veniam.'),
-                              SizedBox(
+                              const SizedBox(
                                 height: 10,
                               ),
                               Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Expanded(
-                                    child: Container(
-                                      height: 50,
-                                      decoration: BoxDecoration(
-                                          color: TripColor.primary,
-                                          borderRadius:
-                                              BorderRadius.circular(10)),
-                                      child: Image.asset('assets/det_chat.png'),
-                                    ),
+                                  Container(
+                                    height: 45,
+                                    width: 45,
+                                    decoration: BoxDecoration(
+                                        color: TripColor.primary,
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
+                                    child: Image.asset('assets/det_chat.png'),
                                   ),
-                                  SizedBox(
-                                    width: 5,
+                                  Container(
+                                    height: 45,
+                                    width: 45,
+                                    decoration: BoxDecoration(
+                                        color: TripColor.primary,
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
+                                    child: Image.asset('assets/det_follow.png'),
                                   ),
-                                  Expanded(
-                                    child: Container(
-                                      height: 50,
-                                      decoration: BoxDecoration(
-                                          color: TripColor.primary,
-                                          borderRadius:
-                                              BorderRadius.circular(10)),
-                                      child:
-                                          Image.asset('assets/det_follow.png'),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  Expanded(
-                                    child: Container(
-                                      height: 50,
-                                      decoration: BoxDecoration(
-                                          color: TripColor.primary,
-                                          borderRadius:
-                                              BorderRadius.circular(10)),
-                                      child: Image.asset(
-                                          'assets/det_location.png'),
-                                    ),
+                                  Container(
+                                    height: 45,
+                                    width: 45,
+                                    decoration: BoxDecoration(
+                                        color: TripColor.primary,
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
+                                    child:
+                                        Image.asset('assets/det_location.png'),
                                   ),
                                 ],
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 10,
                               ),
                               GestureDetector(
@@ -222,7 +212,7 @@ class _DetailPageState extends State<DetailPage> {
                                 },
                                 child: Container(
                                   width: double.infinity,
-                                  height: 50,
+                                  height: 45,
                                   decoration: BoxDecoration(
                                       color: TripColor.yellow,
                                       borderRadius: BorderRadius.circular(10)),
@@ -243,14 +233,14 @@ class _DetailPageState extends State<DetailPage> {
                       decoration: BoxDecoration(
                           border:
                               Border.all(width: 1, color: TripColor.primary)),
-                      height: 70,
+                      height: 50,
                       child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                               elevation: 0,
                               backgroundColor: (selectedPage == 0
                                   ? TripColor.primary
                                   : TripColor.white),
-                              shape: RoundedRectangleBorder()),
+                              shape: const RoundedRectangleBorder()),
                           onPressed: () {
                             setState(() {
                               selectedPage = 0;
@@ -259,13 +249,10 @@ class _DetailPageState extends State<DetailPage> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Transform.scale(
-                                scale: 1.4,
-                                child: Image.asset((selectedPage == 0
-                                    ? 'assets/det_newswhite.png'
-                                    : 'assets/det_newsdark.png')),
-                              ),
-                              SizedBox(
+                              Image.asset((selectedPage == 0
+                                  ? 'assets/det_newswhite.png'
+                                  : 'assets/det_newsdark.png')),
+                              const SizedBox(
                                 width: 15,
                               ),
                               Text(
@@ -285,14 +272,14 @@ class _DetailPageState extends State<DetailPage> {
                       decoration: BoxDecoration(
                           border:
                               Border.all(width: 1, color: TripColor.primary)),
-                      height: 70,
+                      height: 50,
                       child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                               elevation: 0,
                               backgroundColor: (selectedPage == 1
                                   ? TripColor.primary
                                   : TripColor.white),
-                              shape: RoundedRectangleBorder()),
+                              shape: const RoundedRectangleBorder()),
                           onPressed: () {
                             setState(() {
                               selectedPage = 1;
@@ -301,13 +288,10 @@ class _DetailPageState extends State<DetailPage> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Transform.scale(
-                                scale: 1.4,
-                                child: Image.asset((selectedPage == 1
-                                    ? 'assets/det_reviewwhite.png'
-                                    : 'assets/det_reviewdark.png')),
-                              ),
-                              SizedBox(
+                              Image.asset((selectedPage == 1
+                                  ? 'assets/det_reviewwhite.png'
+                                  : 'assets/det_reviewdark.png')),
+                              const SizedBox(
                                 width: 15,
                               ),
                               Text(
@@ -330,17 +314,10 @@ class _DetailPageState extends State<DetailPage> {
                           shrinkWrap: true,
                           children: [
                             Container(
-                              margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
+                              margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                               decoration: BoxDecoration(
                                 color: TripColor.whiteGray,
                                 borderRadius: BorderRadius.circular(15),
-                                boxShadow: [
-                                  BoxShadow(
-                                      color: TripColor.black.withOpacity(0.1),
-                                      blurRadius: 2,
-                                      spreadRadius: 2,
-                                      offset: const Offset(2, 1))
-                                ],
                               ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -385,17 +362,10 @@ class _DetailPageState extends State<DetailPage> {
                               ),
                             ),
                             Container(
-                              margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
+                              margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                               decoration: BoxDecoration(
                                 color: TripColor.whiteGray,
                                 borderRadius: BorderRadius.circular(15),
-                                boxShadow: [
-                                  BoxShadow(
-                                      color: TripColor.black.withOpacity(0.1),
-                                      blurRadius: 2,
-                                      spreadRadius: 2,
-                                      offset: const Offset(2, 1))
-                                ],
                               ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -440,17 +410,10 @@ class _DetailPageState extends State<DetailPage> {
                               ),
                             ),
                             Container(
-                              margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
+                              margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                               decoration: BoxDecoration(
                                 color: TripColor.whiteGray,
                                 borderRadius: BorderRadius.circular(15),
-                                boxShadow: [
-                                  BoxShadow(
-                                      color: TripColor.black.withOpacity(0.1),
-                                      blurRadius: 2,
-                                      spreadRadius: 2,
-                                      offset: const Offset(2, 1))
-                                ],
                               ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -494,7 +457,7 @@ class _DetailPageState extends State<DetailPage> {
                                 ],
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 20,
                             ),
                           ],
@@ -505,8 +468,8 @@ class _DetailPageState extends State<DetailPage> {
                         shrinkWrap: true,
                         children: [
                           Container(
-                            margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
-                            padding: EdgeInsets.all(20),
+                            margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+                            padding: const EdgeInsets.all(20),
                             decoration: BoxDecoration(
                                 color: TripColor.whiteGray,
                                 borderRadius: BorderRadius.circular(10)),
@@ -528,28 +491,28 @@ class _DetailPageState extends State<DetailPage> {
                                             scale: 1.5,
                                             child: Image.asset(
                                                 'assets/det_rating.png')),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 10,
                                         ),
                                         Transform.scale(
                                             scale: 1.5,
                                             child: Image.asset(
                                                 'assets/det_rating.png')),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 10,
                                         ),
                                         Transform.scale(
                                             scale: 1.5,
                                             child: Image.asset(
                                                 'assets/det_rating.png')),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 10,
                                         ),
                                         Transform.scale(
                                             scale: 1.5,
                                             child: Image.asset(
                                                 'assets/det_rating.png')),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 10,
                                         ),
                                         Transform.scale(
@@ -560,7 +523,7 @@ class _DetailPageState extends State<DetailPage> {
                                     )
                                   ],
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 20,
                                 ),
                                 Container(
@@ -568,17 +531,17 @@ class _DetailPageState extends State<DetailPage> {
                                   height: 2,
                                   color: TripColor.graytf,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 20,
                                 ),
-                                Text(
+                                const Text(
                                     'Elit minim irure deserunt duis in mollit nisi cillum adipisicing eiusmod veniam aliquip ullamco laboris.')
                               ],
                             ),
                           ),
                           Container(
-                            margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
-                            padding: EdgeInsets.all(20),
+                            margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+                            padding: const EdgeInsets.all(20),
                             decoration: BoxDecoration(
                                 color: TripColor.whiteGray,
                                 borderRadius: BorderRadius.circular(10)),
@@ -600,28 +563,28 @@ class _DetailPageState extends State<DetailPage> {
                                             scale: 1.5,
                                             child: Image.asset(
                                                 'assets/det_rating.png')),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 10,
                                         ),
                                         Transform.scale(
                                             scale: 1.5,
                                             child: Image.asset(
                                                 'assets/det_rating.png')),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 10,
                                         ),
                                         Transform.scale(
                                             scale: 1.5,
                                             child: Image.asset(
                                                 'assets/det_rating.png')),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 10,
                                         ),
                                         Transform.scale(
                                             scale: 1.5,
                                             child: Image.asset(
                                                 'assets/det_rating.png')),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 10,
                                         ),
                                         Transform.scale(
@@ -632,7 +595,7 @@ class _DetailPageState extends State<DetailPage> {
                                     )
                                   ],
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 20,
                                 ),
                                 Container(
@@ -640,17 +603,17 @@ class _DetailPageState extends State<DetailPage> {
                                   height: 2,
                                   color: TripColor.graytf,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 20,
                                 ),
-                                Text(
+                                const Text(
                                     'Elit minim irure deserunt duis in mollit nisi cillum adipisicing eiusmod veniam aliquip ullamco laboris.')
                               ],
                             ),
                           ),
                           Container(
-                            margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
-                            padding: EdgeInsets.all(20),
+                            margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+                            padding: const EdgeInsets.all(20),
                             decoration: BoxDecoration(
                                 color: TripColor.whiteGray,
                                 borderRadius: BorderRadius.circular(10)),
@@ -672,28 +635,28 @@ class _DetailPageState extends State<DetailPage> {
                                             scale: 1.5,
                                             child: Image.asset(
                                                 'assets/det_rating.png')),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 10,
                                         ),
                                         Transform.scale(
                                             scale: 1.5,
                                             child: Image.asset(
                                                 'assets/det_rating.png')),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 10,
                                         ),
                                         Transform.scale(
                                             scale: 1.5,
                                             child: Image.asset(
                                                 'assets/det_rating.png')),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 10,
                                         ),
                                         Transform.scale(
                                             scale: 1.5,
                                             child: Image.asset(
                                                 'assets/det_rating.png')),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 10,
                                         ),
                                         Transform.scale(
@@ -704,7 +667,7 @@ class _DetailPageState extends State<DetailPage> {
                                     )
                                   ],
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 20,
                                 ),
                                 Container(
@@ -712,17 +675,17 @@ class _DetailPageState extends State<DetailPage> {
                                   height: 2,
                                   color: TripColor.graytf,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 20,
                                 ),
-                                Text(
+                                const Text(
                                     'Elit minim irure deserunt duis in mollit nisi cillum adipisicing eiusmod veniam aliquip ullamco laboris.')
                               ],
                             ),
                           ),
                           Container(
-                            margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
-                            padding: EdgeInsets.all(20),
+                            margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+                            padding: const EdgeInsets.all(20),
                             decoration: BoxDecoration(
                                 color: TripColor.whiteGray,
                                 borderRadius: BorderRadius.circular(10)),
@@ -744,28 +707,28 @@ class _DetailPageState extends State<DetailPage> {
                                             scale: 1.5,
                                             child: Image.asset(
                                                 'assets/det_rating.png')),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 10,
                                         ),
                                         Transform.scale(
                                             scale: 1.5,
                                             child: Image.asset(
                                                 'assets/det_rating.png')),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 10,
                                         ),
                                         Transform.scale(
                                             scale: 1.5,
                                             child: Image.asset(
                                                 'assets/det_rating.png')),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 10,
                                         ),
                                         Transform.scale(
                                             scale: 1.5,
                                             child: Image.asset(
                                                 'assets/det_rating.png')),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 10,
                                         ),
                                         Transform.scale(
@@ -776,7 +739,7 @@ class _DetailPageState extends State<DetailPage> {
                                     )
                                   ],
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 20,
                                 ),
                                 Container(
@@ -784,17 +747,17 @@ class _DetailPageState extends State<DetailPage> {
                                   height: 2,
                                   color: TripColor.graytf,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 20,
                                 ),
-                                Text(
+                                const Text(
                                     'Elit minim irure deserunt duis in mollit nisi cillum adipisicing eiusmod veniam aliquip ullamco laboris.')
                               ],
                             ),
                           ),
                           Container(
-                            margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
-                            padding: EdgeInsets.all(20),
+                            margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+                            padding: const EdgeInsets.all(20),
                             decoration: BoxDecoration(
                                 color: TripColor.whiteGray,
                                 borderRadius: BorderRadius.circular(10)),
@@ -816,28 +779,28 @@ class _DetailPageState extends State<DetailPage> {
                                             scale: 1.5,
                                             child: Image.asset(
                                                 'assets/det_rating.png')),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 10,
                                         ),
                                         Transform.scale(
                                             scale: 1.5,
                                             child: Image.asset(
                                                 'assets/det_rating.png')),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 10,
                                         ),
                                         Transform.scale(
                                             scale: 1.5,
                                             child: Image.asset(
                                                 'assets/det_rating.png')),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 10,
                                         ),
                                         Transform.scale(
                                             scale: 1.5,
                                             child: Image.asset(
                                                 'assets/det_rating.png')),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 10,
                                         ),
                                         Transform.scale(
@@ -848,7 +811,7 @@ class _DetailPageState extends State<DetailPage> {
                                     )
                                   ],
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 20,
                                 ),
                                 Container(
@@ -856,17 +819,17 @@ class _DetailPageState extends State<DetailPage> {
                                   height: 2,
                                   color: TripColor.graytf,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 20,
                                 ),
-                                Text(
+                                const Text(
                                     'Elit minim irure deserunt duis in mollit nisi cillum adipisicing eiusmod veniam aliquip ullamco laboris.')
                               ],
                             ),
                           ),
                           Container(
-                            margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
-                            padding: EdgeInsets.all(20),
+                            margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+                            padding: const EdgeInsets.all(20),
                             decoration: BoxDecoration(
                                 color: TripColor.whiteGray,
                                 borderRadius: BorderRadius.circular(10)),
@@ -888,28 +851,28 @@ class _DetailPageState extends State<DetailPage> {
                                             scale: 1.5,
                                             child: Image.asset(
                                                 'assets/det_rating.png')),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 10,
                                         ),
                                         Transform.scale(
                                             scale: 1.5,
                                             child: Image.asset(
                                                 'assets/det_rating.png')),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 10,
                                         ),
                                         Transform.scale(
                                             scale: 1.5,
                                             child: Image.asset(
                                                 'assets/det_rating.png')),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 10,
                                         ),
                                         Transform.scale(
                                             scale: 1.5,
                                             child: Image.asset(
                                                 'assets/det_rating.png')),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 10,
                                         ),
                                         Transform.scale(
@@ -920,7 +883,7 @@ class _DetailPageState extends State<DetailPage> {
                                     )
                                   ],
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 20,
                                 ),
                                 Container(
@@ -928,15 +891,15 @@ class _DetailPageState extends State<DetailPage> {
                                   height: 2,
                                   color: TripColor.graytf,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 20,
                                 ),
-                                Text(
+                                const Text(
                                     'Elit minim irure deserunt duis in mollit nisi cillum adipisicing eiusmod veniam aliquip ullamco laboris.')
                               ],
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           )
                         ],
@@ -968,14 +931,14 @@ class _DetailPageState extends State<DetailPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
+                    SizedBox(
                       height: 60,
                       width: MediaQuery.of(context).size.width,
                       child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                               elevation: 0,
                               backgroundColor: TripColor.primary,
-                              shape: RoundedRectangleBorder(
+                              shape: const RoundedRectangleBorder(
                                   borderRadius: BorderRadius.only(
                                       topLeft: Radius.circular(10),
                                       topRight: Radius.circular(10)))),
@@ -989,7 +952,7 @@ class _DetailPageState extends State<DetailPage> {
                                 fontSize: 20),
                           )),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     Padding(
@@ -1013,28 +976,28 @@ class _DetailPageState extends State<DetailPage> {
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
                       child: TextInputWidget(title: 'Jumlah Tiket'),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
                       child: TextInputWidget(title: 'Tanggal Kunjungan'),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
                       child: TextInputWidget(title: 'Voucher'),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Padding(
@@ -1056,7 +1019,7 @@ class _DetailPageState extends State<DetailPage> {
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     Padding(
@@ -1069,109 +1032,137 @@ class _DetailPageState extends State<DetailPage> {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Container(
-                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          padding: const EdgeInsets.all(5),
                           decoration: BoxDecoration(
                               color: TripColor.graytf,
                               borderRadius: BorderRadius.circular(9)),
                           child: Row(
                             children: [
-                              Radio(
-                                  value: pmethod[0],
-                                  groupValue: selectedpm,
-                                  onChanged: (value) {
-                                    setState(() {
-                                      selectedpm = pmethod[0];
-                                    });
-                                  }),
+                              SizedBox(
+                                height: 20,
+                                width: 20,
+                                child: Radio(
+                                    value: pmethod[0],
+                                    groupValue: selectedpm,
+                                    onChanged: (value) {
+                                      setState(() {
+                                        selectedpm = pmethod[0];
+                                      });
+                                    }),
+                              ),
+                              const SizedBox(
+                                width: 5,
+                              ),
                               Image.asset('assets/pay_dana.png')
                             ],
                           ),
                         ),
                         Container(
-                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          padding: const EdgeInsets.all(5),
                           decoration: BoxDecoration(
                               color: TripColor.graytf,
                               borderRadius: BorderRadius.circular(9)),
                           child: Row(
                             children: [
-                              Radio(
-                                  value: pmethod[1],
-                                  groupValue: selectedpm,
-                                  onChanged: (value) {
-                                    setState(() {
-                                      selectedpm = pmethod[1];
-                                    });
-                                  }),
+                              SizedBox(
+                                height: 20,
+                                width: 20,
+                                child: Radio(
+                                    value: pmethod[1],
+                                    groupValue: selectedpm,
+                                    onChanged: (value) {
+                                      setState(() {
+                                        selectedpm = pmethod[1];
+                                      });
+                                    }),
+                              ),
+                              const SizedBox(
+                                width: 5,
+                              ),
                               Image.asset('assets/pay_gopay.png')
                             ],
                           ),
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Container(
-                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          padding: const EdgeInsets.all(5),
                           decoration: BoxDecoration(
                               color: TripColor.graytf,
                               borderRadius: BorderRadius.circular(9)),
                           child: Row(
                             children: [
-                              Radio(
-                                  value: pmethod[2],
-                                  groupValue: selectedpm,
-                                  onChanged: (value) {
-                                    setState(() {
-                                      selectedpm = pmethod[2];
-                                    });
-                                  }),
+                              SizedBox(
+                                height: 20,
+                                width: 20,
+                                child: Radio(
+                                    value: pmethod[2],
+                                    groupValue: selectedpm,
+                                    onChanged: (value) {
+                                      setState(() {
+                                        selectedpm = pmethod[2];
+                                      });
+                                    }),
+                              ),
+                              const SizedBox(
+                                width: 5,
+                              ),
                               Image.asset('assets/pay_ovo.png')
                             ],
                           ),
                         ),
                         Container(
-                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          padding: const EdgeInsets.all(5),
                           decoration: BoxDecoration(
                               color: TripColor.graytf,
                               borderRadius: BorderRadius.circular(9)),
                           child: Row(
                             children: [
-                              Radio(
-                                  value: pmethod[3],
-                                  groupValue: selectedpm,
-                                  onChanged: (value) {
-                                    setState(() {
-                                      selectedpm = pmethod[3];
-                                    });
-                                  }),
+                              SizedBox(
+                                height: 20,
+                                width: 20,
+                                child: Radio(
+                                    value: pmethod[3],
+                                    groupValue: selectedpm,
+                                    onChanged: (value) {
+                                      setState(() {
+                                        selectedpm = pmethod[3];
+                                      });
+                                    }),
+                              ),
+                              const SizedBox(
+                                width: 5,
+                              ),
                               Image.asset('assets/pay_others.png')
                             ],
                           ),
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
-                    Container(
+                    SizedBox(
                       height: 60,
                       width: MediaQuery.of(context).size.width,
                       child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                               elevation: 0,
                               backgroundColor: Colors.amber,
-                              shape: RoundedRectangleBorder(
+                              shape: const RoundedRectangleBorder(
                                   borderRadius: BorderRadius.only(
                                       bottomLeft: Radius.circular(10),
                                       bottomRight: Radius.circular(10)))),
@@ -1183,7 +1174,7 @@ class _DetailPageState extends State<DetailPage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Image.asset('assets/det_tiket.png'),
-                              SizedBox(
+                              const SizedBox(
                                 width: 10,
                               ),
                               Text(
@@ -1222,15 +1213,15 @@ class _DetailPageState extends State<DetailPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
-                Icon(
+                const Icon(
                   Icons.check_circle,
                   color: Colors.amber,
                   size: 80,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Text(
@@ -1240,17 +1231,17 @@ class _DetailPageState extends State<DetailPage> {
                       fontSize: 20,
                       color: Colors.amber),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
-                Container(
+                SizedBox(
                   height: 60,
                   width: MediaQuery.of(context).size.width,
                   child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           elevation: 0,
                           backgroundColor: Colors.amber,
-                          shape: RoundedRectangleBorder(
+                          shape: const RoundedRectangleBorder(
                               borderRadius: BorderRadius.only(
                                   bottomLeft: Radius.circular(10),
                                   bottomRight: Radius.circular(10)))),

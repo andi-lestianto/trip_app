@@ -19,7 +19,7 @@ class SearchAppBarWidget extends StatelessWidget {
                 Get.back();
               },
               child: Container(
-                  margin: EdgeInsets.only(right: 20),
+                  margin: const EdgeInsets.only(right: 20),
                   child: Image.asset('assets/ic_back.png')),
             ),
           Expanded(

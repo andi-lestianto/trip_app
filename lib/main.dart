@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:trip_app/page/auth/login_page.dart';
+import 'package:trip_app/page/home/splashsceen.dart';
 import 'package:trip_app/page/theme/tripcolor.dart';
 
 void main() {
@@ -22,6 +22,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.indigo,
         ),
-        home: const LoginPage());
+        home: const SplashScreen());
   }
 }

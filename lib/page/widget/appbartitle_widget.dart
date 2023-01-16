@@ -13,7 +13,7 @@ class AppBarTitleWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(20),
-      child: Container(
+      child: SizedBox(
         height: 50,
         child: Row(
           children: [
@@ -23,7 +23,7 @@ class AppBarTitleWidget extends StatelessWidget {
                   Get.back();
                 },
                 child: Container(
-                    margin: EdgeInsets.only(right: 20),
+                    margin: const EdgeInsets.only(right: 20),
                     child: Image.asset('assets/ic_back.png')),
               ),
             Expanded(

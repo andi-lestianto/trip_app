@@ -98,7 +98,7 @@ class _LoginPageState extends State<LoginPage> {
                                               borderRadius:
                                                   BorderRadius.circular(50))),
                                       onPressed: () {
-                                        Get.off(const HomePage());
+                                        Get.offAll(const HomePage());
                                       },
                                       child: Text(
                                         'LOGIN',

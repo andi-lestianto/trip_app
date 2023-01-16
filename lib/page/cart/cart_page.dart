@@ -6,14 +6,14 @@ import 'package:trip_app/page/theme/tripcolor.dart';
 import 'package:trip_app/page/widget/bottomnavbar_widget.dart';
 import 'package:trip_app/page/widget/searchappbar_widget.dart';
 
-class CategoryPage extends StatefulWidget {
-  const CategoryPage({super.key});
+class CartPage extends StatefulWidget {
+  const CartPage({super.key});
 
   @override
-  State<CategoryPage> createState() => _CategoryPageState();
+  State<CartPage> createState() => _CartPageState();
 }
 
-class _CategoryPageState extends State<CategoryPage> {
+class _CartPageState extends State<CartPage> {
   List<Map<String, dynamic>> dataWisata = [
     {
       'name': 'Bumi Perkemahan Sekipan',
@@ -23,39 +23,11 @@ class _CategoryPageState extends State<CategoryPage> {
       'image': 'assets/wisata_sekipan.png'
     },
     {
-      'name': 'Air Terjun Grojogan Sewu',
-      'rating': '4.6',
-      'distance': '12 Km',
-      'price': 'Rp. 15000',
-      'image': 'assets/wisata_grojogansewu.png'
-    },
-    {
-      'name': 'The Lawu Park',
-      'rating': '4.2',
-      'distance': '15 Km',
-      'price': 'Rp. 25000',
-      'image': 'assets/wisata_lawupark.png'
-    },
-    {
       'name': 'Air Terjun jumog',
       'rating': '4.8',
       'distance': '17 Km',
       'price': 'Rp. 15000',
       'image': 'assets/wisata_jumog.png'
-    },
-    {
-      'name': 'Intan Pari',
-      'rating': '4.0',
-      'distance': '15 Km',
-      'price': 'Rp. 15000',
-      'image': 'assets/wisata_intanpari.png'
-    },
-    {
-      'name': 'Bumi Perkemahan Pleseran',
-      'rating': '4.9',
-      'distance': '15 Km',
-      'price': 'Rp. 10000',
-      'image': 'assets/wisata_pleseran.png'
     },
   ];
 
@@ -68,7 +40,7 @@ class _CategoryPageState extends State<CategoryPage> {
           Container(
             color: TripColor.primary,
           ),
-          const SearchAppBarWidget(isBack: true),
+          const SearchAppBarWidget(isBack: false),
           Container(
             margin: const EdgeInsets.only(top: 100),
             decoration: BoxDecoration(
@@ -84,31 +56,12 @@ class _CategoryPageState extends State<CategoryPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Objek Wisata Terdekat',
-                        style: TripText.sectionTitle,
+                        'Keranjang',
+                        style: GoogleFonts.poppins(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 30,
+                            color: TripColor.primary),
                       ),
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 10, vertical: 5),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: Colors.grey),
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.menu,
-                              color: TripColor.white,
-                            ),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            Text('Filter',
-                                style: GoogleFonts.poppins(
-                                  color: TripColor.white,
-                                ))
-                          ],
-                        ),
-                      )
                     ],
                   ),
                 ),
@@ -240,6 +193,40 @@ class _CategoryPageState extends State<CategoryPage> {
                                           dataWisata[index]['price'],
                                           style: GoogleFonts.poppins(),
                                         )
+                                      ],
+                                    ),
+                                    const SizedBox(
+                                      height: 5,
+                                    ),
+                                    Row(
+                                      children: [
+                                        Expanded(
+                                          child: SizedBox(
+                                            height: 30,
+                                            child: ElevatedButton(
+                                                style: ElevatedButton.styleFrom(
+                                                    backgroundColor:
+                                                        TripColor.primary,
+                                                    elevation: 0),
+                                                onPressed: () {},
+                                                child: Text(
+                                                  'Beli',
+                                                  style: GoogleFonts.poppins(),
+                                                )),
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          width: 10,
+                                        ),
+                                        SizedBox(
+                                          height: 30,
+                                          child: ElevatedButton(
+                                              style: ElevatedButton.styleFrom(
+                                                  backgroundColor: Colors.red,
+                                                  elevation: 0),
+                                              onPressed: () {},
+                                              child: const Icon(Icons.delete)),
+                                        ),
                                       ],
                                     )
                                   ],
